@@ -12,8 +12,8 @@ int raw=0;
   int en1=D2;
   int en2=D1;
 //Array
-int Motion1[8];  
-int Motion2[8];
+char Motion1[8];  
+char Motion2[8];
 
 void setup() {
   // put your setup code here, to run once:
@@ -39,11 +39,11 @@ void loop() {
     digitalWrite(S1, HIGH && (i & B00000010));
     digitalWrite(S2, HIGH && (i & B00000100));
     delay(50);
-    int ohms=0;
+   
     Serial.print("channel");
     Serial.println(i);
-    ohms=r1.calculate_ohms();
-    Motion1[i-1]=
+    Motion1[i-1]=change_into_char(r1.calculate_ohms());
+    
     Serial.println(Motion1[i]);
     delay(50);
     }
@@ -62,7 +62,7 @@ for (int i = 0; i <= 8; i++){
     
     Serial.print("channel");
     Serial.println(i);
-    Motion2[i-1]=r1.calculate_ohms();
+    Motion2[i-1]=change_into_char(r1.calculate_ohms());
     Serial.println(Motion2[i]);
     delay(50);
     }    
@@ -81,7 +81,7 @@ for (int i=0;i<=7;i++){
         
         
         Serial.print("Channel ");
-        Serial.print(i+7);
+        Serial.print(i+8);
         Serial.print(" :");
         Serial.println(Motion2[i]);
         }
