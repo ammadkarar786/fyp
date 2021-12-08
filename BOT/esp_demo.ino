@@ -16,7 +16,7 @@ uint8_t receiverAddress[] = {0xC4, 0x5B, 0xBE, 0x55, 0x93, 0xA0};   // SENSOR MA
 
 struct __attribute__((packed)) dataPacket {
   char motion[3];
-  int ack=0;
+  int ack=0; 
   //int sensor1;
   //int sensor2;
   //float sensor3;

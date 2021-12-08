@@ -1,4 +1,4 @@
-
+/*
 #include "ohm.h"
 #include "mult.h"
 Resistor_value r1;
@@ -88,4 +88,5 @@ for (int i=0;i<=7;i++){
 delay(5000);
 }
 
+  */
    
