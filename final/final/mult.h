@@ -6,6 +6,11 @@ void mult_setup(int S0,int S1, int S2,int en1,int en2){
   pinMode(en2,OUTPUT);
 }
 
+char change_into_char(int a){
+  
+  
+  }
+
 
 /*
 #include "ohm.h"

@@ -32,9 +32,5 @@ Serial.println(R2);
 return R2;
   }
 
-char Compare(float a){
    
-  
-  
-  }   
   };
