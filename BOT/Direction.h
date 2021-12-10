@@ -23,6 +23,12 @@ int speedm=200;
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
     digitalWrite(m4,LOW);
+    delay(3000);
+    digitalWrite(m1,LOW);
+    digitalWrite(m2,LOW);
+    digitalWrite(m3,LOW);
+    digitalWrite(m4,LOW);
+    delay(3000);
     }  
   void Left(){
     Serial.println("LEFT");
@@ -31,6 +37,12 @@ int speedm=200;
     digitalWrite(m2,LOW);
     digitalWrite(m3,HIGH);
     digitalWrite(m4,LOW);
+    delay(3000);
+    digitalWrite(m1,LOW);
+    digitalWrite(m2,LOW);
+    digitalWrite(m3,LOW);
+    digitalWrite(m4,LOW);
+    delay(3000);
     }
    
   void Forward(){
@@ -40,6 +52,12 @@ int speedm=200;
     digitalWrite(m2,LOW);
     digitalWrite(m3,HIGH);
     digitalWrite(m4,LOW);
+    delay(3000);
+    digitalWrite(m1,LOW);
+    digitalWrite(m2,LOW);
+    digitalWrite(m3,LOW);
+    digitalWrite(m4,LOW);
+    delay(3000);
     } 
   void Stop(){
     Serial.println("Stop");
@@ -48,9 +66,9 @@ int speedm=200;
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
     digitalWrite(m4,LOW);
-    }   
-  void apply(char a,Direction b){
-    
+    }
+
+  void switch_function(char a,Direction b){
     switch(a){
       case 'R':
       b.Right();
@@ -66,6 +84,35 @@ int speedm=200;
       break;
       default:
       Serial.println("NO");
+      b.Stop();
+      break;
+      }    
+    }
+  void function(char a,char b,char c,char d,Direction e){
+    switch_function(a,e);
+    switch_function(b,e);
+    switch_function(c,e);
+    switch_function(d,e);
+    
+    }
+  void apply(char a,Direction b,char c,char d,char e,char f){
+
+    switch(a){
+      case 'R':
+      b.Right();
+      break;
+      case 'L':
+      b.Left();
+      break;
+      case 'F':
+      b.Forward();
+      break;
+      case 'U':
+      b.function(c,d,e,f,b);
+      break;
+      default:
+      Serial.println("NO");
+      b.Stop();
       break;
       }
     }    

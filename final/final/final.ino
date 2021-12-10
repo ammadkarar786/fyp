@@ -59,11 +59,12 @@ void dataReceived(uint8_t *senderMac, uint8_t *data, uint8_t dataLength) {
   
   memcpy(&packet, data, sizeof(packet));
   
-  Serial.print("Acknowledge ");
-  Serial.println(packet.ack);
+  Serial.print("Reply $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+  Serial.println(packet.reply);
 }
+
 //ESPnow END
-int button=D0;
+int button=D3;
  
 void setup() {
   Serial.begin(115200);     // initialize serial port
@@ -174,10 +175,11 @@ for (int i = 0; i <= 8; i++){
  
   
   ///Send data after button is press
-  if(digitalRead(D0)==0){
+  if(digitalRead(button)==0){
     packet.ack=1;
+    
     esp_now_send(receiverAddress, (uint8_t *) &packet, sizeof(packet));
-    }
-  
-  delay(5000);
+   }
+    
+  delay(100);
 }
