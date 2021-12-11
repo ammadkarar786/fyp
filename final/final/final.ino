@@ -33,7 +33,7 @@ uint8_t receiverAddress[] = {0xBC, 0xFF, 0x4D, 0x19, 0x1D, 0x33};   // SENSOR MA
 
 
 struct __attribute__((packed)) dataPacket {
- char motion[15];
+ char motion[16];
  bool ack=0;
  bool reply=0;
 };
@@ -132,7 +132,7 @@ for (int i = 0; i <= 8; i++){
     delay(50);
     
     Serial.print("channel");
-    Serial.println(i+8);
+    Serial.println(i+7);
     Motion2[i-1]=change_into_char(r1.calculate_ohms());
     Serial.println(Motion2[i]);
     delay(50);
@@ -146,7 +146,8 @@ for (int i = 0; i <= 8; i++){
             }
            else if (i>=8 && i<=15){
             packet.motion[i]=Motion2[j];
-            j++;}
+            j++;
+            }
             } 
          
     /*  for(int i=0;i<=8;i++){

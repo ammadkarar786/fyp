@@ -16,7 +16,7 @@ bool local_ack;
 uint8_t receiverAddress[] = {0xBC, 0xFF, 0x4D, 0x19, 0x7A, 0xAE};   // SENSOR MAC
 
 struct __attribute__((packed)) dataPacket {
-  char motion[15];
+  char motion[16];
   bool ack = 0;
   bool reply = 0;
 };
@@ -43,12 +43,14 @@ void dataReceived(uint8_t *senderMac, uint8_t *data, uint8_t dataLength) {
   memcpy(&packet, data, sizeof(packet));
 
   ///&&&&&&&&&&&&&&&&&&&&&&Get array from Interface Bot&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-  for (int i = 0; i <= 15; i++) {
+  for (int i = 0; i < 16; i++) {
     local_motion[i] = packet.motion[i];
+ 
   }
-  for (int i = 0; i <= 15; i++) {
+  for (int i = 0; i < 16; i++) {
    Serial.print("channel : ");
-   Serial.println(i);
+   Serial.print(i);
+   Serial.print(" ");
     Serial.println(local_motion[i]);
   }
   local_ack = packet.ack;
