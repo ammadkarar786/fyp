@@ -86,7 +86,4 @@ for (int i=0;i<=7;i++){
         Serial.println(Motion2[i]);
         }
 delay(5000);
-}
-
-  */
-   
+} */

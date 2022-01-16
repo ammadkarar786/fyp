@@ -15,7 +15,7 @@ pinMode(m4,OUTPUT);
 
 void loop() {
   // put your main code here, to run repeatedly:
- analogWrite(en1,255);
+ analogWrite(en1,75);
  digitalWrite(m1,LOW);
  digitalWrite(m2,HIGH);
  delay(5000);

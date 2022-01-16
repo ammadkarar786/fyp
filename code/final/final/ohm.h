@@ -16,19 +16,14 @@ void ohms_setup(int in,float r1,int RAW)
 }
 
 int calculate_ohms(){
-  buffer= raw * Vin;
-Vout= (buffer)/1024.0;
-
-buffer= (Vin/Vout) -1;
-R2= R1 * buffer;
-
-Serial.print("Vout: ");
-
-Serial.println(Vout);
-
-Serial.print("R2: ");
-
-Serial.println(R2);
+   buffer = raw * Vin;
+    Vout = (buffer)/1024.0;
+    buffer = (Vin/Vout) - 1;
+    R2= R1 * buffer;
+    Serial.print("Vout: ");
+    Serial.println(Vout);
+    Serial.print("R2: ");
+    Serial.println(R2);
 return R2;
   }
 

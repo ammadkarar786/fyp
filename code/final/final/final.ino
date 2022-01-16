@@ -109,14 +109,14 @@ void loop() {
     digitalWrite(S0, HIGH && (i & B00000001));
     digitalWrite(S1, HIGH && (i & B00000010));
     digitalWrite(S2, HIGH && (i & B00000100));
-    delay(50);
+    delay(100);
    
     Serial.print("channel");
     Serial.println(i);
     Motion1[i-1]=change_into_char(r1.calculate_ohms());
     
     Serial.println(Motion1[i]);
-    delay(50);
+    delay(100);
     }
  //Second Multiplexer
   digitalWrite(en1,1);
@@ -129,13 +129,13 @@ for (int i = 0; i <= 8; i++){
     digitalWrite(S0, HIGH && (i & B00000001));
     digitalWrite(S1, HIGH && (i & B00000010));
     digitalWrite(S2, HIGH && (i & B00000100));
-    delay(50);
+    delay(100);
     
     Serial.print("channel");
     Serial.println(i+7);
     Motion2[i-1]=change_into_char(r1.calculate_ohms());
     Serial.println(Motion2[i]);
-    delay(50);
+    delay(100);
     }    
     Serial.println("Array");
     ///$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$Put values in packet$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -149,15 +149,15 @@ for (int i = 0; i <= 8; i++){
             j++;
             }
             } 
-         
-    /*  for(int i=0;i<=8;i++){
+    /*     
+      for(int i=0;i<=8;i++){
         Serial.print("channel");
         Serial.print(":  ");
         Serial.print(i+8);
         Serial.println(Motion2[i]);
       }
-      */
-          
+      
+*/          
    //print array
       for(int i=0;i<=15;i++){
         Serial.print("channel");
@@ -182,5 +182,5 @@ for (int i = 0; i <= 8; i++){
     esp_now_send(receiverAddress, (uint8_t *) &packet, sizeof(packet));
    }
     
-  delay(100);
+  delay(50);
 }

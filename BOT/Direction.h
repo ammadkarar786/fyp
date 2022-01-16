@@ -6,7 +6,10 @@ int m2=D5;
 int m3=D7;
 int m4=D1;
 int en1=D6;
-int speedm=200;
+int speedm=110;
+int delay_m=500;
+int delayr=205;
+int wait=2000;
   public:
   void Motor_Setup(){
     Serial.begin(115200);
@@ -22,27 +25,27 @@ int speedm=200;
     digitalWrite(m1,HIGH);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
-    digitalWrite(m4,LOW);
-    delay(3000);
+    digitalWrite(m4,HIGH);
+    delay(delayr);
     digitalWrite(m1,LOW);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
     digitalWrite(m4,LOW);
-    delay(3000);
+    delay(wait);
     }  
   void Left(){
     Serial.println("LEFT");
     analogWrite(en1,speedm);
     digitalWrite(m1,LOW);
-    digitalWrite(m2,LOW);
+    digitalWrite(m2,HIGH);
     digitalWrite(m3,HIGH);
     digitalWrite(m4,LOW);
-    delay(3000);
+    delay(delayr);
     digitalWrite(m1,LOW);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
     digitalWrite(m4,LOW);
-    delay(3000);
+    delay(wait);
     }
    
   void Forward(){
@@ -52,12 +55,12 @@ int speedm=200;
     digitalWrite(m2,LOW);
     digitalWrite(m3,HIGH);
     digitalWrite(m4,LOW);
-    delay(3000);
+    delay(delay_m);
     digitalWrite(m1,LOW);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
     digitalWrite(m4,LOW);
-    delay(3000);
+    delay(wait);
     } 
   void Stop(){
     Serial.println("Stop");
