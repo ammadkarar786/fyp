@@ -30,7 +30,7 @@ def Speak_out (fruit,speed=50):
 # engine.say(fruit)
 # engine.runAndWait()
 
-#Speak_out("APPLE",200)
+Speak_out("APPLE",200)
 
 
     

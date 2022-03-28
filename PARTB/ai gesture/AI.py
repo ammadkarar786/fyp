@@ -27,6 +27,10 @@ cap.set(4,720)
 
 detector = htm.handDetector(detectionCon=0.85)
 drawColour=(0,0,255)
+xp,yp=0,0
+imgCanvas = np.zeros((480,640,3),np.uint8)
+brushThickness=15
+eThickness=60
 
 while True:
     ##import images
@@ -43,9 +47,10 @@ while True:
         
         #3.check which finger is up
         fingers =detector.fingersUp()
-        #print(fingers)
+        print(fingers)
         #4.Selection Mode
-        if fingers[1] and fingers[2]:
+        if fingers[1] and fingers[2]==False and fingers[3]==False and fingers[4]==False and fingers[0]==False :
+            xp,yp=0,0
             cv2.rectangle(img,(x1,y1-25),(x2,y2+25),drawColour,cv2.FILLED)
             #print("Selection Mode")
             #HEADER CHANGE
@@ -70,20 +75,36 @@ while True:
                     
         
         #5.Drawing mode
-        if fingers[1] and fingers[2]==False:
+        if fingers[1] and fingers[2] and fingers[3]==False and fingers[4]==False and fingers[0]==False:
             cv2.circle(img,(x1,y1-15),15,drawColour,cv2.FILLED)
             print("Drawing Mode")
-        
+            if xp ==0 and yp==0:
+                xp, yp= x1, y1
+            if drawColour==(0,0,0):
+                cv2.line(img,(xp,yp),(x1,y1),drawColour,eThickness)
+                cv2.line(imgCanvas,(xp,yp),(x1,y1),drawColour,eThickness)
+                
+            cv2.line(img,(xp,yp),(x1,y1),drawColour,brushThickness)
+            cv2.line(imgCanvas,(xp,yp),(x1,y1),drawColour,brushThickness)
+            xp,yp=x1,y1
             
-    
+    imgGray = cv2.cvtColor(imgCanvas, cv2.COLOR_BGR2GRAY)
+    _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
+    imgInv = cv2.cvtColor(imgInv,cv2.COLOR_GRAY2BGR)
+    img = cv2.bitwise_and(img,imgInv)
+    img = cv2.bitwise_or(img,imgCanvas)
+#     print(img.shape)
+#     print(imgCanvas.shape)
     #setting the header 
-    img[0:62,0:640] = header
+    imgCanvas[0:62,0:640] = header
+#     img = cv2.addWeighted(img,0.5,imgCanvas,0.5,0)
     cv2.imshow("Image",img)
+    cv2.imshow("Canvas",imgInv)
     cv2.waitKey(1)
     
     
     
     
-#49:39    
+    
     
     

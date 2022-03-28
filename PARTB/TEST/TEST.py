@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 
 layout =[
     
-    [sg.Text('Hello World')],
+    [sg.Text('Pocobot Menu')],
     [sg.Button('Gesture Paint')],
     [sg.Button('Flash Card')],
     [sg.Cancel()]
@@ -13,6 +13,17 @@ layout =[
 
 window= sg.Window('My First Window',layout,size=(600,600))
 
-event,value =window.read()
-print(event)
-window.close()
+
+while True:
+
+    event,value =window.read()
+    if event=='Gesture Paint':
+    
+        exec(open("AI.py").read())
+        print("in")
+    if event=='Cancel':
+        window.close()
+        break
+        
+
+    print(event)
