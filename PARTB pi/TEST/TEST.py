@@ -11,7 +11,7 @@ layout =[
     [sg.Cancel()]
     ]
 
-window= sg.Window('My First Window',layout,size=(200,200))
+window= sg.Window('My First Window',layout,size=(600,600))
 
 
 while True:
@@ -19,8 +19,8 @@ while True:
     event,value =window.read()
     if event=='Gesture Paint':
     
-        exec(open("AI.py").read())
-        
+        exec(open("AI_test.py").read())
+        print("in")
     if event=='Cancel':
         window.close()
         break

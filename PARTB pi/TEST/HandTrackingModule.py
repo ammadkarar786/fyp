@@ -12,16 +12,16 @@ import math
 import numpy as np
 
 class handDetector():
-    def __init__(self, mode=False, maxHands=1, modelComplexity=1, detectionCon=0.5, trackCon=0.5):
+    def __init__(self, mode=False, maxHands=1,  detectionCon=0.5, trackCon=0.5):
         self.mode = mode
         self.maxHands = maxHands
-        self.modelComplex = modelComplexity
+        
         self.detectionCon = detectionCon
         self.trackCon = trackCon
 
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelComplex, 
-                                        self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands,  self.detectionCon, self.trackCon)
+                                        
         self.mpDraw = mp.solutions.drawing_utils
         self.tipIds = [4, 8, 12, 16, 20]
         self.lmList =[]
@@ -106,7 +106,7 @@ def main():
         if len(lmList) != 0:
             print(lmList[4])
 
-        cTime = time.time()
+        cTime = time.time()/10
         fps = 1 / (cTime - pTime)
         pTime = cTime
         print(cTime)
