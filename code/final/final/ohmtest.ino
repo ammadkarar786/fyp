@@ -1,4 +1,4 @@
-/*
+
 #include "ohm.h"
 
 #include "mult.h"
@@ -28,4 +28,4 @@ r1.ohms_setup(Vin,R1,raw);
 char result=change_into_char(r1.calculate_ohms());
 Serial.println (result);
 delay(1000);
-}*/
+}
