@@ -1,6 +1,7 @@
-/*#include "Direction.h"
+/*
+#include "Direction.h"
 Direction m;
-char motion[2]={'L','S'};
+char motion[2]={'F','F'};
 
 
 void setup(){
@@ -9,9 +10,9 @@ void setup(){
   }
 
 void loop(){
-  m.apply(motion[0],m);
-  delay(5000);
-  m.apply(motion[1],m);
-  delay(5000);
-  }*/
-    
+  m.apply(motion[0],m,'S','S','S','S');
+  delay(2000);
+  m.apply(motion[1],m,'S','S','S','S');
+  delay(2000);
+  }
+  */  

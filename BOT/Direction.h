@@ -6,9 +6,9 @@ int m2=D5;
 int m3=D7;
 int m4=D1;
 int en1=D6;
-int speedm=110;
-int delay_m=500;
-int delayr=205;
+int speedm=200;
+int delay_m=5000;
+int delayr=1000;
 int wait=2000;
   public:
   void Motor_Setup(){
