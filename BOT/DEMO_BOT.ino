@@ -15,4 +15,4 @@ void loop(){
   m.apply(motion[1],m,'S','S','S','S');
   delay(2000);
   }
-  */  
+  */ 
