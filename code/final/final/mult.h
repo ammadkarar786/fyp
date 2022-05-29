@@ -8,16 +8,16 @@ void mult_setup(int S0,int S1, int S2,int en1,int en2){
 
 char change_into_char(int a){
 
-  if(a>=850 && a<=1000){
+  if(a>=700 && a<=800){
     return 'F';
     }
-  else if(a>=130 && a<220){
+  else if(a>=75 && a<100){
     return 'R';
     }
   else if(a>=450 && a<=680 ){
     return 'L';
     } 
-   else if(a>=1900 && a<=2500){
+   else if(a>=1800 && a<=2000){
     return 'U';
     } 
    else{

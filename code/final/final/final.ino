@@ -1,4 +1,4 @@
-/* 1
+
 #include<ESP8266WiFi.h>
 #include<espnow.h>
 ///multiplexer start
@@ -158,7 +158,7 @@ for (int i = 0; i <= 8; i++){
       }
       
 */  
-/*  2        
+        
    //print array
       for(int i=0;i<=15;i++){
         Serial.print("channel");
@@ -186,5 +186,4 @@ for (int i = 0; i <= 8; i++){
   delay(50);
 } 
 
-3
-*/ 
+ 
