@@ -6,10 +6,10 @@ int m2=D5;
 int m3=D7;
 int m4=D1;
 int en1=D6;
-int speedm=200;  //set speed
-int delay_m=500;  //set delay
-int delayr=240;  // set right delay 
-int delayl=240;  // set left delay 
+int speedm=150;  //set speed
+int delay_m=550;  //set delay
+int delayr=190;  // set right delay 
+int delayl=190;  // set left delay 
 int wait=2000;
   public:
   void Motor_Setup(){
@@ -24,7 +24,7 @@ int wait=2000;
     Serial.println("RIGHT");
     analogWrite(en1,speedm);
     digitalWrite(m1,LOW);
-    digitalWrite(m2,LOW);
+    digitalWrite(m2,HIGH);
     digitalWrite(m3,HIGH);
     digitalWrite(m4,LOW);
     delay(delayr);
@@ -40,8 +40,8 @@ int wait=2000;
     digitalWrite(m1,HIGH);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);
-    digitalWrite(m4,LOW);
-    delay(delayr);
+    digitalWrite(m4,HIGH);
+    delay(delayl);
     digitalWrite(m1,LOW);
     digitalWrite(m2,LOW);
     digitalWrite(m3,LOW);

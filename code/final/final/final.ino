@@ -29,7 +29,7 @@ char Motion2[8];
 //uint8_t receiverAddress[] = {0xBC, 0xDD, 0xC2, 0xBA, 0xFA, 0xB1};     // PC MAC
 
 #define MY_NAME         "PC NODE"
-uint8_t receiverAddress[] = {0xBC, 0xFF, 0x4D, 0x19, 0x1D, 0x33};   // SENSOR MAC
+uint8_t receiverAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};   //  MAC
 
 
 struct __attribute__((packed)) dataPacket {
