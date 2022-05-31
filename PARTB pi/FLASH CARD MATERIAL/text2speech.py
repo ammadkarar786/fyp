@@ -19,7 +19,7 @@ def Speak_out (fruit,speed=50):
     engine.runAndWait()
 
 if __name__ == '__main__':
-    Speak_out('POCOBOT')
+    Speak_out('POCOBOT',140)
 
 # 
 # for speak in fruit: ##sperate

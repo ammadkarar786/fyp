@@ -2,15 +2,15 @@
 #include "ohm.h"
 
 #include "mult.h"
-Resistor_value r1;
+Resistor_value r1;  //?
 int Vin=3.3;
-int R1=1000;
-int raw=0;
+int R1=1000;  ///?
+int raw=0;  //?
 
 void setup() {
   // put your setup code here, to run once:
 Serial.begin(115200);
-pinMode(A0,INPUT);
+pinMode(A0,INPUT);  ///?
 pinMode(D5,OUTPUT);
 pinMode(D6,OUTPUT);
 pinMode(D7,OUTPUT);

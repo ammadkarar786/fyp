@@ -29,10 +29,10 @@ char Motion2[8];
 //uint8_t receiverAddress[] = {0xBC, 0xDD, 0xC2, 0xBA, 0xFA, 0xB1};     // PC MAC
 
 #define MY_NAME         "PC NODE"
-uint8_t receiverAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};   //  MAC
+uint8_t receiverAddress[] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};   //  ////???
+//////???
 
-
-struct __attribute__((packed)) dataPacket {
+struct __attribute__((packed)) dataPacket {  ////???
  char motion[16];
  bool ack=0;
  bool reply=0;
@@ -46,7 +46,7 @@ void transmissionComplete(uint8_t *receiver_mac, uint8_t transmissionStatus) {
     Serial.println(transmissionStatus);
   }
 }
-
+   /////???????
 void dataReceived(uint8_t *senderMac, uint8_t *data, uint8_t dataLength) {
   char macStr[18];
   dataPacket packet;  
@@ -177,9 +177,9 @@ for (int i = 0; i <= 8; i++){
  
   
   ///Send data after button is press
-  if(digitalRead(button)==0){
+  if(digitalRead(button)==0){  /////???
     packet.ack=1;
-    
+    //////??????
     esp_now_send(receiverAddress, (uint8_t *) &packet, sizeof(packet));
    }
     

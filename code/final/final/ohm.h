@@ -8,6 +8,7 @@ class Resistor_value
   float R2;
   float buffer;
 public:
+///???
 void ohms_setup(int in,float r1,int RAW)
 {
     Vin=in;
@@ -15,8 +16,8 @@ void ohms_setup(int in,float r1,int RAW)
     raw=RAW;
 }
 
-int calculate_ohms(){
-   buffer = raw * Vin;
+int calculate_ohms(){   ///????
+   buffer = raw * Vin;     
     Vout = (buffer)/1024.0;
     buffer = (Vin/Vout) - 1;
     R2= R1 * buffer;
@@ -25,8 +26,8 @@ int calculate_ohms(){
     Serial.print("R2: ");
     Serial.println(R2);
 */
-return R2;
+return R2;///?
   }
-
+             
    
   };

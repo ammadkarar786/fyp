@@ -18,7 +18,7 @@ char Motion2[8];
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
-mult_setup(S0,S1,S2,en1,en2);
+mult_setup(S0,S1,S2,en1,en2); ///?
 pinMode(A0,INPUT);
 }
 
@@ -31,11 +31,11 @@ void loop() {
   digitalWrite(en2,1);
   //First Multiplexer
   Serial.println("First Multiplexer");
-  for (int i = 0; i <= 8; i++){
+  for (int i = 0; i <= 8; i++){  ///
     raw=analogRead(A0);
     r1.ohms_setup(Vin,R1,raw);  
 
-    digitalWrite(S0, HIGH && (i & B00000001));
+    digitalWrite(S0, HIGH && (i & B00000001)); /// ?
     digitalWrite(S1, HIGH && (i & B00000010));
     digitalWrite(S2, HIGH && (i & B00000100));
     delay(50);
@@ -47,14 +47,14 @@ void loop() {
     Serial.println(Motion1[i]);
     delay(50);
     }
- //Second Multiplexer
-  digitalWrite(en1,1);
-  digitalWrite(en2,0);
+ //Second Multiplexer   ///?
+  digitalWrite(en1,1);////?
+  digitalWrite(en2,0);//?
   Serial.println("Second Multiplexer");
-for (int i = 0; i <= 8; i++){
+for (int i = 0; i <= 8; i++){ 
     raw=analogRead(A0);
     r1.ohms_setup(Vin,R1,raw);  
-
+                    ///             ?
     digitalWrite(S0, HIGH && (i & B00000001));
     digitalWrite(S1, HIGH && (i & B00000010));
     digitalWrite(S2, HIGH && (i & B00000100));
@@ -85,5 +85,5 @@ for (int i=0;i<=7;i++){
         Serial.print(" :");
         Serial.println(Motion2[i]);
         }
-delay(5000);
+delay(5000);///?
 } */

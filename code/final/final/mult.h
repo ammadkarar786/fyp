@@ -5,20 +5,20 @@ void mult_setup(int S0,int S1, int S2,int en1,int en2){
   pinMode(en1,OUTPUT);
   pinMode(en2,OUTPUT);
 }
-
+                     ////??
 char change_into_char(int a){
 
-  if(a>=700 && a<=800){
-    return 'F';
+  if(a>=700 && a<=800){  
+    return 'F';  ///??
     }
   else if(a>=75 && a<100){
-    return 'R';
+    return 'R'; ///?
     }
   else if(a>=450 && a<=680 ){
-    return 'L';
+    return 'L'; ///?
     } 
    else if(a>=1800 && a<=2000){
-    return 'U';
+    return 'U';///?
     } 
    else{
     return 'N';
@@ -26,8 +26,8 @@ char change_into_char(int a){
     
   }
 
-
 /*
+
 #include "ohm.h"
 Resistor_value r; 
 int read_a0=analogRead(A0);
