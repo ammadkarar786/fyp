@@ -6,9 +6,9 @@ int m2=D5;
 int m3=D7;
 int m4=D1;
 int en1=D6;
-int speedm=150;  //set speed
+int speedm=130;  //set speed
 int delay_m=550;  //set delay
-int delayr=190;  // set right delay 
+int delayr=170;  // set right delay 
 int delayl=190;  // set left delay 
 int wait=2000;
   public:
