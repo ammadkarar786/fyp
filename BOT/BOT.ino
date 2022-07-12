@@ -1,9 +1,9 @@
-/*
-int m1=D0;
-int m2=D5;
+
+int m1=D6;
+int m2=D8;
 int m3=D7;
 int m4=D1;
-int en1=D6;
+int en1=D2;
 void setup() {
   // put your setup code here, to run once:
 pinMode(en1,OUTPUT);
@@ -15,12 +15,12 @@ pinMode(m4,OUTPUT);
 
 void loop() {
   // put your main code here, to run repeatedly:
- analogWrite(en1,255);
- digitalWrite(m1,LOW);
- digitalWrite(m2,HIGH);
+ //analogWrite(en1,255);
+ analogWrite(m1,255);
+ analogWrite(m2,255);
  delay(2000);
-digitalWrite(m1,HIGH);
- digitalWrite(m2,LOW);
+ analogWrite(m1,255);
+ analogWrite(m2,255);
  delay(2000);
  
 digitalWrite(m3,HIGH);
@@ -30,4 +30,4 @@ digitalWrite(m3,HIGH);
 digitalWrite(m3,HIGH);
  digitalWrite(m4,LOW);
  delay(2000);
-}*/
+}
