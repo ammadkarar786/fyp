@@ -1,4 +1,4 @@
-/*
+
 #include<ESP8266WiFi.h>
 #include<espnow.h>
 #include "Direction.h"
@@ -7,6 +7,12 @@
 #define RECEIVER_ROLE   ESP_NOW_ROLE_COMBO              // set the role of the receiver
 #define WIFI_CHANNEL    1
 Direction m;
+
+///^^^^^^^^^^^^IR SENSOR ^^^^^^^^^^^^^^^
+int ledPin = 9; // choose pin for the LED
+int inputPin = 4; // choose input pin (for Infrared sensor)
+int val = 0; // variable for reading the pin status
+
 ///// ARRAY FOR LOCAL USE
 char local_motion[15];
 bool local_ack;
@@ -69,6 +75,9 @@ void setup() {
   if (esp_now_init() != 0) {
     Serial.println("ESP-NOW initialization failed");
     return;
+////^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^IR SENSOR^^^^^^^^^^^^^^^^^^^
+  pinMode(ledPin, OUTPUT); // declare LED as output
+  pinMode(inputPin, INPUT); // declare Infrared sensor as input  
   }
 
   esp_now_set_self_role(MY_ROLE);
@@ -90,7 +99,17 @@ void loop() {
 
       esp_now_send(receiverAddress, (uint8_t *) &packet, sizeof(packet));
       m.apply(local_motion[i], m,local_motion[12],local_motion[13],local_motion[14],local_motion[15]);
-
+      ////^^^^^^^^^^^^IR SENSOR^^^^^^^^^^^^^
+      val = digitalRead(inputPin); // read input value
+   if (val == HIGH)
+   { // check if the input is HIGH
+      digitalWrite(ledPin, LOW); // turn LED OFF  
+   }
+   else
+   {
+      digitalWrite(ledPin, HIGH); // turn LED ON
+      delay(5000); //delay of 5 seconds
+   }     
     }
   }
 
@@ -98,5 +117,7 @@ void loop() {
     local_motion[i] = 0;
   }
   local_ack = 0;
+  digitalWrite(ledPin, LOW); 
   delay(100);
-}*/
+
+}
